@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Ranchers&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <title>Gra Kamień Papier Nożyce</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <header>
+      <h1 class="header">
+        <span class="headerSpan">gra</span>
+        <span class="headerSpan">kamień</span>
+        <span class="headerSpan">papier</span>
+        <span class="headerSpan">nożyce</span>
+      </h1>
+    </header>
+    <div class="newGame container">
+      <button class="newGameBtn" id="newGameBtn">Nowa Gra</button>
+    </div>
+    <!-- Score board -->
+    <div class="result">
+      <p>
+        <span id="resultScoreName">Gracz </span>
+        <span id="playerScore"></span> : <span id="cpuScore"></span> Komputer
+      </p>
+    </div>
+
+    <!-- System messages -->
+    <div class="outputResult container" id="outputResult">
+      <p>Naciśnij 'Nowa Gra' aby rozpocząć <br />Sprawdź swoje szczeście</p>
+    </div>
+
+    <div class="moves container">
+      <div class="buttons " id="playerMoves">
+        <button class="btn btnRock player-move" data-move="Rock">
+          <i class="fas fa-hand-rock"></i>
+        </button>
+        <button class="btn btnPaper player-move" data-move="Paper">
+          <i class="fas fa-hand-paper"></i>
+        </button>
+        <button class="btn btnScissors player-move" data-move="Scissors">
+          <i class="fas fa-hand-peace"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Modals -->
+    <div class="overlay" id="modal-overlay">
+      <!-- End game modal / table score -->
+      <div class="modal" id="scoreModal">
+        <div class="modalWrapper">
+          <a href="#" class="modalClose">x</a>
+          <div class="modalHeader"></div>
+          <div class="modalTable">
+            <div class="modalTable_header">
+              <div class="modalTable_rounds">Runda</div>
+              <div class="modalTable_player">
+                Ruch gracza
+              </div>
+              <div class="modalTable_result">Wynik</div>
+            </div>
+            <div class="modalTable_content">
+              <div class="modalTable_column tableRounds"></div>
+              <div class="modalTable_column tablePlayerMoves"></div>
+              <div class="modalTable_column tableResult"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Start game modal -->
+      <div class="modal" id="startModal">
+        <div class="modalWrapper">
+          <a href="#" class="modalClose">x</a>
+          <div class="modalRow">
+            <label class="modal_label">Nazwa Gracza</label>
+            <input class="modal_input" id="player-name" type="text" maxlength="10" placeholder="Max 10 characters"
+              required autofocus />
+          </div>
+          <div class="modalRow">
+            <label class="modal_label">Rund do wygrania</label>
+            <input class="modal_input" id="rounds-number" type="number" min="1" max="10" step="1"
+              placeholder="Max 10 rounds" required />
+          </div>
+          <button class="modal_button" id="start-button" type="button" disabled>
+            Start
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- overlay-->
+
+    <footer class="copyright container">
+      <p class="copyrightParagraph">
+        &copy;2020
+        <a class="copyrightLink" href="https://github.com/sergiuszpu"><b>Sergiusz Pu</b></a>
+      </p>
+    </footer>
+  </div>
+  <script defer src="js/script.js"></script>
+</body>
+
+</html>

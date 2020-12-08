@@ -1,0 +1,291 @@
+$font: 'Ranchers', cursive;
+$dark-grey: #747d8c;
+$orange: #ffa502;
+$green: #2ed573;
+$blue: #4b647e;
+$red: #e4312a;
+$yellow: #f8d745;
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: $font;
+    text-align: center;
+    background-color: $blue;
+}
+
+.container-fluid {
+    // height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    color: white;
+}
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+.header {
+    margin: 10px;
+    margin-top: 5px;
+    text-transform: uppercase;
+    font: {
+        size: 50px;
+        weight: 800;
+    }
+    // line-height: 55px;
+    .headerSpan:nth-child(1) {
+        margin-top: 20px;
+        display: block;
+        padding-bottom: 18px;
+        color: $red;
+        font : {
+            size: 80px;
+        }
+    }
+    .headerSpan:nth-child(2) {
+        color: $orange;
+    }
+    .headerSpan:nth-child(3){
+        color: $green;
+    }
+    .headerSpan:nth-child(4) {
+        color: $yellow;
+    }
+}
+
+.newGameBtn {
+    height: 60px;
+    width: 300px;
+    cursor: pointer;
+    border-radius: 25px;
+    color: $red;
+    font-family: $font;
+    font : {
+        weight: bold;
+        size: 35px;  
+    }
+    background: {
+        image: linear-gradient(190deg, white 50%, transparent 50%);
+        position: 100% 0;
+        size: 300%;
+    }
+    transition: 0.5s;
+    &:hover {
+        background-position: 0 100%;
+        color: white;
+    }
+}
+
+.result {
+    height: 60px;
+    width: 500px;
+    font-size: 25px;
+    color: white;
+    // border: 2px solid $red;
+    border-radius: 25px;
+    span:nth-child(1) {
+        margin-bottom: 100px;
+    }
+}
+
+.outpuResult {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.btn {
+    height: 200px;
+    width: 200px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    border-radius: 50%;
+    margin: 0 10px;
+    border: 4px solid;
+    font-weight: bold;
+    font-size: 110px;
+    background : {
+        color: inherit;
+        position: 100% 0;
+        size: 300%;
+        }   
+    &:hover {
+        background-position: 0 100%;
+        color: #fff;
+        transition: 0.5s;
+    }
+  
+}
+
+.btnRock {
+    color: $orange;
+    border-color: $orange;
+    background-image: linear-gradient(135deg, $orange 50%, transparent 50%);
+}
+.btnPaper {
+    color: $green;
+    border-color: $green;
+    background-image: linear-gradient(45deg, $green 50%, transparent 50%);
+}
+.btnScissors {
+    color: $yellow;
+    border-color: $yellow;
+    background-image: linear-gradient(135deg, $yellow 50%, transparent 50%);
+}
+
+.fas {
+    font-size: 100px;
+    position: absolute;
+    top: 50%;
+    left: auto;
+    right: 50%;
+    transform: translate(50%, -50%);
+}
+
+.modal {
+    display: none;
+    color: $dark-grey;
+    border: 4px solid $red;
+    border-radius: 25px;
+    width: 600px;
+    background: #fff;
+    line-height: 18px;
+    margin: auto;
+    &Wrapper {
+        margin: 15px auto;
+        width: 570px;
+        max-height: 400px;
+        overflow-y: auto;
+        flex-wrap: wrap;
+    }
+    &Row {
+        padding: 5px;
+    }
+    &_label {
+        font-size: 22px;
+        font-weight: 700;
+    }
+    &_input {
+        width: 120px;
+        height: 30px;
+        font-size: 14px;
+        border-radius: 10px;
+    }
+    &_button {
+        cursor: pointer;
+        background: none;
+        color: $green;
+        margin-top: 10px;
+        font-size: 25px;
+        font-weight: 600;
+        border-width: 3px;
+        border-color: $green;
+        border-radius: 10px;
+        &:hover {
+            background: $green;
+            color: #fff;
+        }
+        &:disabled {
+            cursor: auto;
+            background: none;
+            color: $green;
+        }
+    }
+    &Close {
+        display: flex;
+        text-decoration: none;
+        justify-content: flex-end;
+        margin-right: 10px;
+        font-size: 20px;
+        font-weight: 700;
+        color: $dark-grey;
+      }
+      &Header {
+        width: 100%;
+        padding: 10px;
+        font-size: 18px;
+        font-weight: 700;
+        color: $red;
+      }
+      .modalTable {
+        margin: 10px;
+        &_header {
+          font-weight: 600;
+          padding: 5px;
+          display: flex;
+          justify-content: space-between;
+          border: 3px solid $dark-grey;
+          border-bottom: none;
+          border-top-right-radius: 8px;
+          border-top-left-radius: 8px;
+        }
+        &_content {
+          padding: 5px;
+          display: flex;
+          justify-content: space-between;
+          border: 3px solid $dark-grey;
+          border-bottom-right-radius: 8px;
+          border-bottom-left-radius: 8px;
+        }
+        &_column {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          div:nth-child(even) {
+            color: $red;
+          }
+        }
+    }
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  ::-webkit-scrollbar {
+    width: 14px;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+    background-color: $dark-grey;
+  }
+  .copyright {
+    color: $dark-grey;
+    &Link {
+      color: $dark-grey;
+      text-decoration: none;
+    }
+  }
+
+.show {
+    display: flex;
+}
+
+.invisible {
+    visibility: hidden;
+}
